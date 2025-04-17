@@ -14,17 +14,35 @@ Some Glimpses of my project:
 
 ![Screenshot (360)](https://github.com/user-attachments/assets/be2814c9-f5a3-4a34-9eab-0b6ca541abf0)
 
+
+
 3)LoggedIn successfully:
 
 ![Screenshot (361)](https://github.com/user-attachments/assets/62e2f638-7190-4d7d-b2cd-5a8ef62446ce)
 
 
+
+
 3) The Main Page:
    
-![Screenshot (362)](https://github.com/user-attachments/assets/f408da55-661c-421b-b0bc-a094ccb3729a)
+![Screenshot (365)](https://github.com/user-attachments/assets/7f8ce374-2048-4c6a-bdad-018eab499dc5)
+
 
 
 4)The Main Page with some results:
 
-![Screenshot (364)](https://github.com/user-attachments/assets/7e6cb2fb-e873-4c70-a4f8-b07c923a2d7c)
+![Screenshot (366)](https://github.com/user-attachments/assets/84f3d191-7a64-4549-8a7e-6bff53dc3d7b)
+
+
+
+5) Logging Out:
+
+![Screenshot (367)](https://github.com/user-attachments/assets/bda67158-afdc-4b99-8b85-71a7a6c8dc81)
+
+
+
+6) Back to Login Page:
+
+![Screenshot (368)](https://github.com/user-attachments/assets/6e254b0e-884f-4cae-a18c-e613052f3413)
+
 
