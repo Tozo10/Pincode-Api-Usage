@@ -4,6 +4,7 @@ Designed an web-app which finds out the post offices in the desired pin codes.
 
 The authentication is done by using firebase and post offices by post office API.
 Some Glimpses of my project:
+
 1) Register page:
 
 ![1](https://github.com/user-attachments/assets/a433ecb1-0e77-4fb6-8d19-7e1fa66d48ac)
@@ -51,7 +52,7 @@ Some Glimpses of my project:
 
 
 
-6) Back to Login Page:
+8) Back to Login Page:
 
 ![8](https://github.com/user-attachments/assets/bb591f81-c789-42d5-84c3-a443634db314)
 
