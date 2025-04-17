@@ -1,3 +1,52 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+import { getAuth, onAuthStateChanged, signOut  } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+import { firebaseConfig} from './firebase-config.js';
+import { getFirestore, doc, getDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app); 
+const db = getFirestore(app); // Initialize Firestore
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (loggedInUserId) {
+      const docRef = doc(db, "users", loggedInUserId);
+      getDoc(docRef).then((docSnap) => {
+        if (docSnap.exists()) {
+          const userData = docSnap.data();
+          document.getElementById("user").innerHTML = `Welcome ${userData.email}`;
+        } else {
+          console.log("No such document!");
+        }
+      }).catch((error) => {
+        console.log("Error getting document:", error);
+      });
+    } else {
+      console.log("No logged-in user found in localStorage.");
+    }
+  } else {
+    console.log("User is not logged in.");
+  }
+});
+
+const logout = document.getElementById("logout");
+logout.addEventListener("click", () => {
+  localStorage.removeItem('loggedInUserId');
+  signOut(auth)
+    .then(() => {
+      alert("User signed out successfully.");
+      // Redirect to login page
+      window.location.href = "login.html";
+    })
+    .catch((error) => {
+      console.error("Error signing out: ", error);
+    });
+});
+
 const style = document.createElement("style"); //<style></style>
 const container2 = document.querySelector('.container2');
 
@@ -104,7 +153,8 @@ button {
 
 
 document.head.appendChild(style);
-
+const Search = document.getElementById("Search");
+Search.addEventListener("click", getPincodeData);
 function getPincodeData() {
     //take the pincode value in a variable
     const pin = document.getElementById("pincode").value;

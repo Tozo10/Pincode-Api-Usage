@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 import { firebaseConfig} from './firebase-config.js';
+import { getFirestore, doc, setDoc, getDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 // Your web app's Firebase configuration
 
 
@@ -10,7 +11,7 @@ import { firebaseConfig} from './firebase-config.js';
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app); // ✅ Add this line
-
+const db = getFirestore(app);
 // Submit button event
 const form = document.querySelector("form");
 form.addEventListener("submit", function(e) {
@@ -21,6 +22,7 @@ form.addEventListener("submit", function(e) {
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
+            localStorage.setItem('loggedInUserId', user.uid); // Store the user ID in local storage
             alert("Logged In successfully!");
             window.location.href = "index.html"; 
 
