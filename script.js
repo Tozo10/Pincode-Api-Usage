@@ -9,43 +9,48 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app); 
 const db = getFirestore(app); // Initialize Firestore
+window.addEventListener('pageshow', function (event) {
+  if (event.persisted || (performance.getEntriesByType("navigation")[0]?.type === "back_forward")) {
+    window.location.reload();
+  }
+});
+
+
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    const loggedInUserId = localStorage.getItem('loggedInUserId');
-    if (loggedInUserId) {
-      const docRef = doc(db, "users", loggedInUserId);
-      getDoc(docRef).then((docSnap) => {
-        if (docSnap.exists()) {
-          const userData = docSnap.data();
-          document.getElementById("user").innerHTML = `Welcome ${userData.email}`;
-        } else {
-          console.log("No such document!");
-        }
-      }).catch((error) => {
-        console.log("Error getting document:", error);
-      });
-    } else {
-      console.log("No logged-in user found in localStorage.");
-    }
+    const userId = user.uid;
+    const docRef = doc(db, "users", userId);
+
+    getDoc(docRef).then((docSnap) => {
+      if (docSnap.exists()) {
+        const userData = docSnap.data();
+        document.getElementById("user").innerHTML = `Welcome ${userData.email}`;
+      } else {
+        console.log("No such document!");
+      }
+    }).catch((error) => {
+      console.log("Error getting document:", error);
+    });
+
   } else {
-    console.log("User is not logged in.");
+    // Redirect if not logged in
+    window.location.replace("login.html");
   }
 });
 
 const logout = document.getElementById("logout");
 logout.addEventListener("click", () => {
-  localStorage.removeItem('loggedInUserId');
   signOut(auth)
     .then(() => {
       alert("User signed out successfully.");
-      // Redirect to login page
       window.location.href = "login.html";
     })
     .catch((error) => {
       console.error("Error signing out: ", error);
     });
 });
+
 
 const style = document.createElement("style"); //<style></style>
 const container2 = document.querySelector('.container2');
