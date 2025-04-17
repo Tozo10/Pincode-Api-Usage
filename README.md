@@ -12,7 +12,7 @@ Some Glimpses of my project:
 
 
 
-2)Login Page:
+2) Login Page:
 
 ![2](https://github.com/user-attachments/assets/f0e03f51-0c5c-4d02-98fe-482353414fbb)
 
@@ -23,7 +23,7 @@ Some Glimpses of my project:
 ![3](https://github.com/user-attachments/assets/d327d037-52cf-4f6e-9892-84f8e889a1d2)
 
 
-4)LoggedIn successfully:
+4) LoggedIn successfully:
 
 ![4](https://github.com/user-attachments/assets/b0ac268e-796b-4f24-8114-f024f65ba589)
 
@@ -38,7 +38,7 @@ Some Glimpses of my project:
 
 
 
-6)The Main Page with some results:
+6) The Main Page with some results:
 
 ![6](https://github.com/user-attachments/assets/b64ef28d-e0de-4813-990a-19bb78a6b047)
 
