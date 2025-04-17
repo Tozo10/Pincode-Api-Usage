@@ -73,6 +73,7 @@ body {
   width: 100%;
   overflow: hidden;
   z-index: 1;
+   font-family: 'Poppins', sans-serif;
 }
 
 body::before {
@@ -83,6 +84,23 @@ body::before {
   z-index: -1;
   animation: animateBg 5s linear infinite;
   filter: hue-rotate(0deg);
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+    text-decoration: underline;
+}
+#footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container1 {
